@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: workshop-python-hello_python_fastapi
+  title: Hello FastAPI
+  description: |
+    Introduction to Red Hat Dev Spaces with a FastAPI translation service.
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - devspaces
+  links:
+    - url: https://<server>/#<repo>
+      title: "Launch from Dev Spaces"
+      icon: web
+spec:
+  type: module
+  lifecycle: production
+  owner: group:default/cluster-admins
+  gitlab:
+    remoteUrl: https://<server>
+    owner: developers
+    repository: workshop-repository
+    branch: main
+  subcomponentOf: component:default/workshop-repository
+  dependsOn:
+    - component:default/workshop-agenda
