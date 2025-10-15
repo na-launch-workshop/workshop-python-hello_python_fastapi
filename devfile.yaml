@@ -35,7 +35,7 @@ commands:
       label: "2. Run tests"
       component: tools
       workingDir: ${PROJECT_SOURCE}
-      commandLine: "pytest"
+      commandLine: "python -m pytest"
       group:
         kind: test
         isDefault: true

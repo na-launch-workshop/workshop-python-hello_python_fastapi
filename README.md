@@ -16,7 +16,7 @@ pip install -r requirements-dev.txt
 
 ## Running the Tests
 ```bash
-pytest
+python -m pytest
 ```
 
 ## Starting the Service
