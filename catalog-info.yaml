@@ -16,7 +16,7 @@ metadata:
 spec:
   type: module
   lifecycle: production
-  owner: group:default/cluster-admins
+  owner: group:default/workshop-admins
   gitlab:
     remoteUrl: https://<server>
     owner: developers
