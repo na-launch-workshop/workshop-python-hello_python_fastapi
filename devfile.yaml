@@ -8,17 +8,17 @@ attributes:
 components:
   - name: tools
     container:
-      image: image-registry.openshift-image-registry.svc:5000/openshift/udi-rhel9:3.22
+      image: image-registry.openshift-image-registry.svc:5000/openshift/udi-rhel9:latest
       endpoints:
         - exposure: public
           name: hello-by-lang
           protocol: https
           targetPort: 8080
           path: /
-      cpuLimit: '4'
-      cpuRequest: '1'
-      memoryLimit: '8G'
-      memoryRequest: '4G'
+      cpuLimit: '2'
+      cpuRequest: '500m'
+      memoryLimit: '4Gi'
+      memoryRequest: '2Gi'
       mountSources: true
 commands:
   - id: 1-install
