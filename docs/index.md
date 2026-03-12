@@ -10,9 +10,13 @@
 
 This project mirrors the Node.js translation service from `workshop-nodejs-hello_nodejs`, delivering the same behaviour using Python and FastAPI. It exposes a single endpoint that returns a localized greeting with an ISO-8601 timestamp appended.
 
+---
+
 ## Prerequisites
 - Python 3.10 or newer
 - pip
+
+---
 
 ## 🐾 **Guided Walkthrough**
 
