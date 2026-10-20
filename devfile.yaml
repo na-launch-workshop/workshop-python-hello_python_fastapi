@@ -1,4 +1,4 @@
-schemaVersion: 2.2.2
+schemaVersion: 2.3.0
 metadata:
   name: workshop-python-hello_python_fastapi
   version: 1.0.0
@@ -8,7 +8,7 @@ attributes:
 components:
   - name: tools
     container:
-      image: image-registry.openshift-image-registry.svc:5000/openshift/udi-rhel9:latest
+      image: image-registry.openshift-image-registry.svc:5000/workspace-images/udi-rhel9:latest
       endpoints:
         - exposure: public
           name: hello-by-lang

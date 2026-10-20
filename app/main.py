@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 from fastapi import FastAPI
 from fastapi.responses import PlainTextResponse
 
+from . import easter_eggs
 from .config import AppConfig, load_config
 
 ERROR_INVALID_JSON = "Invalid JSON format in {filename}"
@@ -41,7 +42,10 @@ def create_app(config: AppConfig | None = None) -> FastAPI:
                 status_code=500,
             )
 
-        translation = translations.get(cfg.default_language) or translations.get("EN")
+        secret = easter_eggs.alternate_greeting(cfg.default_language)
+        translation = (
+            secret or translations.get(cfg.default_language) or translations.get("EN")
+        )
         if not isinstance(translation, str):
             return PlainTextResponse(
                 ERROR_INVALID_JSON.format(filename=cfg.translation_file_name),
@@ -49,7 +53,15 @@ def create_app(config: AppConfig | None = None) -> FastAPI:
             )
 
         timestamp = datetime.now(timezone.utc).isoformat()
-        return PlainTextResponse(f"{translation} @ {timestamp}")
+        body = f"{translation} @ {timestamp}"
+        if secret:
+            body += easter_eggs.claim()
+
+        return easter_eggs.add_hint(PlainTextResponse(body))
+
+    @application.get("/eggs", response_class=PlainTextResponse)
+    def read_eggs() -> PlainTextResponse:
+        return easter_eggs.eggs()
 
     return application
 
