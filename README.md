@@ -1,4 +1,4 @@
-# 🚀 **Module: FastAPI Hello World Translation Service**
+# 🚀 **Module: Python Hello World Translation Service**
 
 **Technology Stack:**
 
